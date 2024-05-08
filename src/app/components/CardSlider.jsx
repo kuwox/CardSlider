@@ -1,10 +1,13 @@
 "use client";
+import { Sora, Lato } from "next/font/google";
 import { Button } from "@nextui-org/react";
 import { TfiArrowTopRight } from "react-icons/tfi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
+
+const sora = Sora({ subsets: ["latin"] });
 
 const tutorials = [
   {
@@ -45,7 +48,7 @@ const tutorials = [
   },
 ];
 
-export default function Tutorials() {
+export default function CardSlider() {
   var settings = {
     dots: true,
     infinite: false,
@@ -82,6 +85,19 @@ export default function Tutorials() {
   };
 
   return (
+    <section className="bg-white p-10 md:p-20">
+      <h1 className={sora.className}>
+        <span className="text-black text-5xl font-bold">Card slider</span>
+      </h1>
+      <a href="#" class="mt-3 inline-flex items-center md:float-end">
+        <Button className="bg-gray-400 px-3 rounded-lg text-black">
+          Ver todos
+          <TfiArrowTopRight className="w-7 h-7 p-1" />
+        </Button>
+      </a>
+      <p className="text-black py-6">
+      Lorem ipsum dolor sit amet.
+      </p>
     <Slider className="mx-auto" {...settings}>
       {tutorials.map((tutorial, index) => {
         return (
@@ -112,5 +128,6 @@ export default function Tutorials() {
         );
       })}
     </Slider>
+    </section>
   );
 }

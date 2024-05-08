@@ -1,9 +1,9 @@
-import Tutorials from "./components/tutorials";
+import CardSlider from "./components/CardSlider";
 
 export default function Home() {
   return (
     <>
-    <Tutorials/>
+    <CardSlider/>
     </>
   );
 }
